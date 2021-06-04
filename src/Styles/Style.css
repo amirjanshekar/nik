@@ -7,7 +7,7 @@
     font-family: IRANSans, serif;
 }
 
-.modal-70w{
+.modal-65w{
     max-width: 65% !important;
 }
 
@@ -36,6 +36,10 @@
 .btn-day.active{
     background-color: #013904 !important;
     color: white !important;
+}
+
+.btn-day.active > p{
+    visibility: visible !important;
 }
 
 .btn-time{

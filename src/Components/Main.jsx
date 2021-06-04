@@ -60,7 +60,7 @@ class Main extends PureComponent {
             const hour = parseInt((index * 30 + time) / 60) < 10 ? '0' + parseInt((index * 30 + time) / 60) : parseInt((index * 30 + time) / 60)
             const minute = (index * 30 + time) % 60 === 0 ? '0' + (index * 30 + time) % 60 : (index * 30 + time) % 60
             times.push(
-                <div className='col-xl-2 my-1 text-center'>
+                <div className='col-xl-2 col-lg-2 col-sm-3 col-6 my-1 text-center px-1'>
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Button variant={this.state.time === hour + ' : ' + minute ? 'success' : 'outline-success'}
                             className='btn-time text-right border-0 py-1'
@@ -76,10 +76,13 @@ class Main extends PureComponent {
         for (let index1 = 1; index1 < 8; index1++) {
             if (moment().locale('en').add(index1, 'day').weekday() !== 5) {
                 tabs.push(
-                    <Nav.Item className='mx-3'
+                    <Nav.Item className='mx-1'
                               onClick={this.setDay.bind(this, moment().add(index1, 'day').format('D'),
                                   moment().add(index1, 'day').format('MMMM'))}>
-                        <Nav.Link eventKey={index1} className='btn-day text-center'>
+                        <Nav.Link eventKey={index1} className='btn-day text-center p-0 pb-2 my-2'>
+                            <p className='mb-1 text-center bg-light text-dark' style={{fontSize:'10px' , visibility: "hidden"}}>
+                                {index1 === 1? 'فردا' : moment.weekdays(moment().locale('en').add(index1, 'day').weekday())}
+                            </p>
                             <p className='mb-2'>
                                 {moment.weekdays(moment().locale('en').add(index1, 'day').weekday())}
                             </p>
@@ -146,7 +149,7 @@ class Main extends PureComponent {
                     </div>
                 </div>
                 {/*main modal for choosing date and time */}
-                <Modal show={this.state.modal} onHide={this.setFalse.bind(this)} dialogClassName="modal-70w">
+                <Modal show={this.state.modal} onHide={this.setFalse.bind(this)} dialogClassName="modal-65w mx-auto" >
                     <Modal.Header>
                         <Modal.Title style={{fontSize: '16px'}}>هماهنگی بازدید</Modal.Title>
                     </Modal.Header>
